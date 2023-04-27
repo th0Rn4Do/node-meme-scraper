@@ -1,14 +1,14 @@
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
 
 // This output just a test output to check wether the program is running at all.
-console.log("What's up!!");
+// console.log("What's up!!");
 
 // This const is a test string to test wether the substring can be found later in the program
-const testSubstringForIndexOf = 'JavaScript';
+// const testSubstringForIndexOf = 'JavaScript';
 
 // This const is a test to know that stringForHtml was initialised with abc
-const stringForHtml = 'abc';
-console.log(stringForHtml);
+// const stringForHtml = 'abc';
+// console.log(stringForHtml);
 
 // This initialises the htmlFromMemeMainpage in order to assign the retured html-string later
 let htmlFromMemeMainpage = 'no return html';
@@ -22,28 +22,37 @@ await fetch('https://memegen-link-examples-upleveled.netlify.app/')
 // fetch('').then((response) => then.)...
 // check recording time: 12:10
 
-// This looks for the substring 'Scipt' as a test
-console.log(testSubstringForIndexOf.indexOf('Script'));
+// This looks for the substring 'Script' as a test
+// console.log(testSubstringForIndexOf.indexOf('Script'));
 
-// This looks for the 1st substring <img src
+// This looks for the 1st substring "<img src" in the text
 const positionOf1stImageUrl = htmlFromMemeMainpage.indexOf('<img src');
+
+// This just prints the the number of the URL and the position of it in the big html file
 console.log('1st URL');
-console.log(positionOf1stImageUrl);
+// console.log(positionOf1stImageUrl);
 
-const firstImagesExtendedUrl = htmlFromMemeMainpage.slice(7990, 8100);
-console.log(firstImagesExtendedUrl);
+// This finds the first substring containing the 1st URL
+const firstImagesExtendedUrl = htmlFromMemeMainpage.slice(
+  positionOf1stImageUrl,
+  positionOf1stImageUrl + 80,
+);
+// console.log(firstImagesExtendedUrl);
 
+// This removes the "<img src" and keeps the rest after the URL
 const temporaryfirstImagesUrl = firstImagesExtendedUrl.slice(10, 72);
-console.log(temporaryfirstImagesUrl);
+// console.log(temporaryfirstImagesUrl);
 
+// This findes the exact position of the http and the first space ' '.
 const positionOf1stHttpInImageUrl = temporaryfirstImagesUrl.indexOf('https');
 const positionOf1stSpaceInImageUrl = temporaryfirstImagesUrl.indexOf(' ');
 
+// This slices the exact starting from http until the first space ' '.
 const finalfirstImagesUrl = temporaryfirstImagesUrl.slice(
   positionOf1stHttpInImageUrl,
   positionOf1stSpaceInImageUrl,
 );
-console.log('this should be it');
+// console.log('this should be it');
 console.log(finalfirstImagesUrl);
 
 // This looks for the 2st substring <img src
@@ -52,7 +61,30 @@ const positionOf2ndImageUrl = htmlFromMemeMainpage.indexOf(
   positionOf1stImageUrl + 1,
 );
 console.log('2nd URL');
-console.log(positionOf2ndImageUrl);
+// console.log(positionOf2ndImageUrl);
+
+// This finds the first substring containing the 1st URL
+const secondImagesExtendedUrl = htmlFromMemeMainpage.slice(
+  positionOf2ndImageUrl,
+  positionOf2ndImageUrl + 80,
+);
+// console.log(firstImagesExtendedUrl);
+
+// This removes the "<img src" and keeps the rest after the URL
+const temporary2ndImagesUrl = secondImagesExtendedUrl.slice(10, 72);
+// console.log(temporaryfirstImagesUrl);
+
+// This findes the exact position of the http and the first space ' '.
+const positionOf2ndHttpInImageUrl = temporaryfirstImagesUrl.indexOf('https');
+const positionOf2ndSpaceInImageUrl = temporaryfirstImagesUrl.indexOf(' ');
+
+// This slices the exact starting from http until the first space ' '.
+const final2ndImagesUrl = temporary2ndImagesUrl.slice(
+  positionOf2ndHttpInImageUrl,
+  positionOf2ndSpaceInImageUrl,
+);
+// console.log('this should be it');
+console.log(final2ndImagesUrl);
 
 // This looks for the 3rd substring <img src
 const positionOf3rdImagesUrl = htmlFromMemeMainpage.indexOf(
