@@ -1,6 +1,8 @@
 node_modules/
 npm-debug.log*
 .DS_Store
+memes/
+# Adding the folder "memes/" like this to the file .gitignore is how to ignore a folder
 
 .eslintcache
 *.tsbuildinfo
