@@ -12,7 +12,7 @@ try {
 
 // this creates an array for the location of the images.
 
-const allTenUrlsArray = ['apple', 'banana'];
+const allTenUrlsArray = [];
 
 // This output just a test output to check wether the program is running at all.
 // console.log("What's up!!");
@@ -395,8 +395,17 @@ allTenUrlsArray.push(final10thImagesUrl);
 
 console.log(allTenUrlsArray.length);
 
-console.log(allTenUrlsArray[9]);
+// eighth item in array is on index 7
+console.log(allTenUrlsArray[7]);
+// eighth URL
 console.log(final8thImagesUrl);
+
+// loop to copy all 10 items to folder
+/
+for (i = 0, i < 10, i++) {
+  let new file named '0' + i + '.jpg';
+  fetch(allTenUrlsArray[i]) and save it to newly created file in folder memes
+}
 
 //
 //
