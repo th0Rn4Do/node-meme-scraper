@@ -2,12 +2,20 @@ import fetch from 'node-fetch';
 
 console.log("What's up!!");
 
-let stringForHtml = 'abc';
+const javastuff = 'JavaScript';
+const stringForHtml = 'abc';
 console.log(stringForHtml);
 
-fetch('https://memegen-link-examples-upleveled.netlify.app/')
+let htmlFromMemeMainpage;
+
+await fetch('https://memegen-link-examples-upleveled.netlify.app/')
   .then((response) => response.text())
-  .then((data) => console.log(data));
+  .then((data) => (htmlFromMemeMainpage = data));
 
 // fetch('').then((response) => then.)...
 // check recording time: 12:10
+
+console.log(javastuff.indexOf('Script'));
+console.log(htmlFromMemeMainpage.indexOf('<img src'));
+const stuff2 = htmlFromMemeMainpage.substring(7990, 8100);
+console.log(stuff2);
