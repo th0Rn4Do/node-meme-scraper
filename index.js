@@ -10,6 +10,10 @@ try {
   console.log(`${memes} already exists.`);
 }
 
+// this creates an array for the location of the images.
+
+const allTenUrlsArray = ['apple', 'banana'];
+
 // This output just a test output to check wether the program is running at all.
 // console.log("What's up!!");
 
@@ -65,6 +69,23 @@ const finalfirstImagesUrl = temporaryfirstImagesUrl.slice(
 // console.log('this should be it');
 console.log(finalfirstImagesUrl);
 
+// This adds the first URL to the array
+/* async function addImageToArray() {
+  await fetch(finalfirstImagesUrl).then((response) =>
+    /* response.text())
+    .then((data) => */ // allTenImagesArray.push(response),
+/*  );
+  return;
+} */
+
+/* async function addUrlToArray(imageUrl) {
+  allTenUrlsArray.push(imageUrl);
+  return;
+}
+*/
+
+allTenUrlsArray.push(finalfirstImagesUrl);
+
 // This looks for the 2st substring <img src
 const positionOf2ndImageUrl = htmlFromMemeMainpage.indexOf(
   '<img src',
@@ -95,6 +116,8 @@ const final2ndImagesUrl = temporary2ndImagesUrl.slice(
 );
 // console.log('this should be it');
 console.log(final2ndImagesUrl);
+
+allTenUrlsArray.push(final2ndImagesUrl);
 
 // This looks for the 3rd substring <img src
 
@@ -128,6 +151,10 @@ const final3rdImagesUrl = temporary3rdImagesUrl.slice(
 // console.log('this should be it');
 console.log(final3rdImagesUrl);
 
+allTenUrlsArray.push(final3rdImagesUrl);
+
+// console.log(allTenUrlsArray.length);
+
 // This looks for the 4th substring <img src
 
 const positionOf4thImagesUrl = htmlFromMemeMainpage.indexOf(
@@ -159,6 +186,8 @@ const final4thImagesUrl = temporary4thImagesUrl.slice(
 );
 // console.log('this should be it');
 console.log(final4thImagesUrl);
+
+allTenUrlsArray.push(final4thImagesUrl);
 
 // This looks for the 5th substring <img src
 
@@ -192,6 +221,8 @@ const final5thImagesUrl = temporary5thImagesUrl.slice(
 // console.log('this should be it');
 console.log(final5thImagesUrl);
 
+allTenUrlsArray.push(final5thImagesUrl);
+
 // This looks for the 6th substring <img src
 
 const positionOf6thImagesUrl = htmlFromMemeMainpage.indexOf(
@@ -223,6 +254,8 @@ const final6thImagesUrl = temporary6thImagesUrl.slice(
 );
 // console.log('this should be it');
 console.log(final6thImagesUrl);
+
+allTenUrlsArray.push(final6thImagesUrl);
 
 // This looks for the 7th substring <img src
 
@@ -256,6 +289,8 @@ const final7thImagesUrl = temporary7thImagesUrl.slice(
 // console.log('this should be it');
 console.log(final7thImagesUrl);
 
+allTenUrlsArray.push(final7thImagesUrl);
+
 // This looks for the 8th substring <img src
 
 const positionOf8thImagesUrl = htmlFromMemeMainpage.indexOf(
@@ -287,6 +322,8 @@ const final8thImagesUrl = temporary8thImagesUrl.slice(
 );
 // console.log('this should be it');
 console.log(final8thImagesUrl);
+
+allTenUrlsArray.push(final8thImagesUrl);
 
 // This looks for the 9th substring <img src
 
@@ -320,6 +357,8 @@ const final9thImagesUrl = temporary9thImagesUrl.slice(
 // console.log('this should be it');
 console.log(final9thImagesUrl);
 
+allTenUrlsArray.push(final9thImagesUrl);
+
 // This looks for the 10th substring <img src
 
 const positionOf10thImagesUrl = htmlFromMemeMainpage.indexOf(
@@ -351,6 +390,13 @@ const final10thImagesUrl = temporary10thImagesUrl.slice(
 );
 // console.log('this should be it');
 console.log(final10thImagesUrl);
+
+allTenUrlsArray.push(final10thImagesUrl);
+
+console.log(allTenUrlsArray.length);
+
+console.log(allTenUrlsArray[9]);
+console.log(final8thImagesUrl);
 
 //
 //
