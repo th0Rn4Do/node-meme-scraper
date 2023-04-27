@@ -1,17 +1,17 @@
 // import fetch from 'node-fetch';
-import { promises as fs } from 'fs';
+import { existsSync, mkdirSync } from 'fs';
 
-// This creates a new folder
-const memes = '/Users/projects/memes';
-
+// This creates a new folder named memes and in case it already exists it gives an error message
 try {
-  await fs.mkdirSync(memes);
-} catch {
-  console.log(`${memes} already exists.`);
+  if (existsSync('memes')) {
+    console.log('directory already exists.');
+  }
+  mkdirSync('memes');
+} catch (error) {
+  console.log('error occured:', error);
 }
 
-// this creates an array for the location of the images.
-
+// this creates an array for the 10 URLs. Later the array will be used to access all 10 images and copy them to to folder memes.
 const allTenUrlsArray = [];
 
 // This output just a test output to check wether the program is running at all.
@@ -393,15 +393,15 @@ console.log(final10thImagesUrl);
 
 allTenUrlsArray.push(final10thImagesUrl);
 
-console.log(allTenUrlsArray.length);
+// console.log(allTenUrlsArray.length);
 
 // eighth item in array is on index 7
-console.log(allTenUrlsArray[7]);
+// console.log(allTenUrlsArray[7]);
 // eighth URL
-console.log(final8thImagesUrl);
+// console.log(final8thImagesUrl);
 
 // loop to copy all 10 items to folder
-/
+/*
 for (i = 0, i < 10, i++) {
   let new file named '0' + i + '.jpg';
   fetch(allTenUrlsArray[i]) and save it to newly created file in folder memes
