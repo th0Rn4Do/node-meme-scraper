@@ -30,6 +30,22 @@ const positionOf1stImageUrl = htmlFromMemeMainpage.indexOf('<img src');
 console.log('1st URL');
 console.log(positionOf1stImageUrl);
 
+const firstImagesExtendedUrl = htmlFromMemeMainpage.slice(7990, 8100);
+console.log(firstImagesExtendedUrl);
+
+const temporaryfirstImagesUrl = firstImagesExtendedUrl.slice(10, 72);
+console.log(temporaryfirstImagesUrl);
+
+const positionOf1stHttpInImageUrl = temporaryfirstImagesUrl.indexOf('https');
+const positionOf1stSpaceInImageUrl = temporaryfirstImagesUrl.indexOf(' ');
+
+const finalfirstImagesUrl = temporaryfirstImagesUrl.slice(
+  positionOf1stHttpInImageUrl,
+  positionOf1stSpaceInImageUrl,
+);
+console.log('this should be it');
+console.log(finalfirstImagesUrl);
+
 // This looks for the 2st substring <img src
 const positionOf2ndImageUrl = htmlFromMemeMainpage.indexOf(
   '<img src',
@@ -101,12 +117,6 @@ const positionOf10thImagesUrl = htmlFromMemeMainpage.indexOf(
 );
 console.log('10th URL');
 console.log(positionOf10thImagesUrl);
-
-/*
-const positionOfFirstImagesUrl =
-const firstImagesUrl = htmlFromMemeMainpage.substring(7990, 8100);
-console.log(stuff2);
-*/
 
 /*
 const secondImagesUrl = htmlFromMemeMainpage.substring(7990, 8100);
