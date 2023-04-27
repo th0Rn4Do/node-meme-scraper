@@ -1,4 +1,14 @@
 // import fetch from 'node-fetch';
+import { promises as fs } from 'fs';
+
+// This creates a new folder
+const memes = '/Users/projects/memes';
+
+try {
+  await fs.mkdirSync(memes);
+} catch {
+  console.log(`${memes} already exists.`);
+}
 
 // This output just a test output to check wether the program is running at all.
 // console.log("What's up!!");
@@ -327,7 +337,7 @@ const tenthImagesExtendedUrl = htmlFromMemeMainpage.slice(
 // console.log(tenthImagesExtendedUrl);
 
 // This removes the "<img src" and keeps the rest after the URL
-const temporary10thImagesUrl = ninethImagesExtendedUrl.slice(10, 72);
+const temporary10thImagesUrl = tenthImagesExtendedUrl.slice(10, 72);
 // console.log(temporarytenthImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
