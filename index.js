@@ -63,16 +63,16 @@ const positionOf2ndImageUrl = htmlFromMemeMainpage.indexOf(
 console.log('2nd URL');
 // console.log(positionOf2ndImageUrl);
 
-// This finds the first substring containing the 1st URL
+// This finds the first substring containing the 2nd URL
 const secondImagesExtendedUrl = htmlFromMemeMainpage.slice(
   positionOf2ndImageUrl,
   positionOf2ndImageUrl + 80,
 );
-// console.log(firstImagesExtendedUrl);
+// console.log(secondImagesExtendedUrl);
 
 // This removes the "<img src" and keeps the rest after the URL
 const temporary2ndImagesUrl = secondImagesExtendedUrl.slice(10, 72);
-// console.log(temporaryfirstImagesUrl);
+// console.log(temporary2ndImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
 const positionOf2ndHttpInImageUrl = temporaryfirstImagesUrl.indexOf('https');
@@ -87,68 +87,265 @@ const final2ndImagesUrl = temporary2ndImagesUrl.slice(
 console.log(final2ndImagesUrl);
 
 // This looks for the 3rd substring <img src
+
 const positionOf3rdImagesUrl = htmlFromMemeMainpage.indexOf(
   '<img src',
   positionOf2ndImageUrl + 1,
 );
 console.log('3rd URL');
-console.log(positionOf3rdImagesUrl);
+// console.log(positionOf3rdImagesUrl);
+
+// This finds the first substring containing the 3rd URL
+const thirdImagesExtendedUrl = htmlFromMemeMainpage.slice(
+  positionOf3rdImagesUrl,
+  positionOf3rdImagesUrl + 80,
+);
+// console.log(thirdImagesExtendedUrl);
+
+// This removes the "<img src" and keeps the rest after the URL
+const temporary3rdImagesUrl = thirdImagesExtendedUrl.slice(10, 72);
+// console.log(temporaryfirstImagesUrl);
+
+// This findes the exact position of the http and the first space ' '.
+const positionOf3rdHttpInImageUrl = temporary3rdImagesUrl.indexOf('https');
+const positionOf3rdSpaceInImageUrl = temporary3rdImagesUrl.indexOf(' ');
+
+// This slices the exact starting from http until the first space ' '.
+const final3rdImagesUrl = temporary3rdImagesUrl.slice(
+  positionOf3rdHttpInImageUrl,
+  positionOf3rdSpaceInImageUrl,
+);
+// console.log('this should be it');
+console.log(final3rdImagesUrl);
 
 // This looks for the 4th substring <img src
+
 const positionOf4thImagesUrl = htmlFromMemeMainpage.indexOf(
   '<img src',
   positionOf3rdImagesUrl + 1,
 );
 console.log('4th URL');
-console.log(positionOf4thImagesUrl);
+// console.log(positionOf4thImagesUrl);
+
+// This finds the first substring containing the 4th URL
+const fourthImagesExtendedUrl = htmlFromMemeMainpage.slice(
+  positionOf4thImagesUrl,
+  positionOf4thImagesUrl + 80,
+);
+// console.log(thirdImagesExtendedUrl);
+
+// This removes the "<img src" and keeps the rest after the URL
+const temporary4thImagesUrl = fourthImagesExtendedUrl.slice(10, 72);
+// console.log(temporaryfirstImagesUrl);
+
+// This findes the exact position of the http and the first space ' '.
+const positionOf4thHttpInImageUrl = temporary4thImagesUrl.indexOf('https');
+const positionOf4thSpaceInImageUrl = temporary4thImagesUrl.indexOf(' ');
+
+// This slices the exact starting from http until the first space ' '.
+const final4thImagesUrl = temporary4thImagesUrl.slice(
+  positionOf4thHttpInImageUrl,
+  positionOf4thSpaceInImageUrl,
+);
+// console.log('this should be it');
+console.log(final4thImagesUrl);
 
 // This looks for the 5th substring <img src
+
 const positionOf5thImagesUrl = htmlFromMemeMainpage.indexOf(
   '<img src',
   positionOf4thImagesUrl + 1,
 );
 console.log('5th URL');
-console.log(positionOf5thImagesUrl);
+// console.log(positionOf5thImagesUrl);
+
+// This finds the first substring containing the 5th URL
+const fifthImagesExtendedUrl = htmlFromMemeMainpage.slice(
+  positionOf5thImagesUrl,
+  positionOf5thImagesUrl + 80,
+);
+// console.log(fifthImagesExtendedUrl);
+
+// This removes the "<img src" and keeps the rest after the URL
+const temporary5thImagesUrl = fifthImagesExtendedUrl.slice(10, 72);
+// console.log(temporaryfifthImagesUrl);
+
+// This findes the exact position of the http and the first space ' '.
+const positionOf5thHttpInImageUrl = temporary5thImagesUrl.indexOf('https');
+const positionOf5thSpaceInImageUrl = temporary5thImagesUrl.indexOf(' ');
+
+// This slices the exact starting from http until the first space ' '.
+const final5thImagesUrl = temporary5thImagesUrl.slice(
+  positionOf5thHttpInImageUrl,
+  positionOf5thSpaceInImageUrl,
+);
+// console.log('this should be it');
+console.log(final5thImagesUrl);
 
 // This looks for the 6th substring <img src
+
 const positionOf6thImagesUrl = htmlFromMemeMainpage.indexOf(
   '<img src',
   positionOf5thImagesUrl + 1,
 );
 console.log('6th URL');
-console.log(positionOf6thImagesUrl);
+// console.log(positionOf6thImagesUrl);
+
+// This finds the first substring containing the 6th URL
+const sixthImagesExtendedUrl = htmlFromMemeMainpage.slice(
+  positionOf6thImagesUrl,
+  positionOf6thImagesUrl + 80,
+);
+// console.log(sixthImagesExtendedUrl);
+
+// This removes the "<img src" and keeps the rest after the URL
+const temporary6thImagesUrl = sixthImagesExtendedUrl.slice(10, 72);
+// console.log(temporaryfifthImagesUrl);
+
+// This findes the exact position of the http and the first space ' '.
+const positionOf6thHttpInImageUrl = temporary6thImagesUrl.indexOf('https');
+const positionOf6thSpaceInImageUrl = temporary6thImagesUrl.indexOf(' ');
+
+// This slices the exact starting from http until the first space ' '.
+const final6thImagesUrl = temporary6thImagesUrl.slice(
+  positionOf6thHttpInImageUrl,
+  positionOf6thSpaceInImageUrl,
+);
+// console.log('this should be it');
+console.log(final6thImagesUrl);
 
 // This looks for the 7th substring <img src
+
 const positionOf7thImagesUrl = htmlFromMemeMainpage.indexOf(
   '<img src',
   positionOf6thImagesUrl + 1,
 );
 console.log('7th URL');
-console.log(positionOf7thImagesUrl);
+// console.log(positionOf7thImagesUrl);
+
+// This finds the first substring containing the 6th URL
+const seventhImagesExtendedUrl = htmlFromMemeMainpage.slice(
+  positionOf7thImagesUrl,
+  positionOf7thImagesUrl + 80,
+);
+// console.log(seventhImagesExtendedUrl);
+
+// This removes the "<img src" and keeps the rest after the URL
+const temporary7thImagesUrl = seventhImagesExtendedUrl.slice(10, 72);
+// console.log(temporaryseventhImagesUrl);
+
+// This findes the exact position of the http and the first space ' '.
+const positionOf7thHttpInImageUrl = temporary7thImagesUrl.indexOf('https');
+const positionOf7thSpaceInImageUrl = temporary7thImagesUrl.indexOf(' ');
+
+// This slices the exact starting from http until the first space ' '.
+const final7thImagesUrl = temporary7thImagesUrl.slice(
+  positionOf7thHttpInImageUrl,
+  positionOf7thSpaceInImageUrl,
+);
+// console.log('this should be it');
+console.log(final7thImagesUrl);
 
 // This looks for the 8th substring <img src
+
 const positionOf8thImagesUrl = htmlFromMemeMainpage.indexOf(
   '<img src',
   positionOf7thImagesUrl + 1,
 );
 console.log('8th URL');
-console.log(positionOf8thImagesUrl);
+// console.log(positionOf8thImagesUrl);
+
+// This finds the first substring containing the 6th URL
+const eighthImagesExtendedUrl = htmlFromMemeMainpage.slice(
+  positionOf8thImagesUrl,
+  positionOf8thImagesUrl + 80,
+);
+// console.log(eighthImagesExtendedUrl);
+
+// This removes the "<img src" and keeps the rest after the URL
+const temporary8thImagesUrl = eighthImagesExtendedUrl.slice(10, 72);
+// console.log(temporaryeighthImagesUrl);
+
+// This findes the exact position of the http and the first space ' '.
+const positionOf8thHttpInImageUrl = temporary8thImagesUrl.indexOf('https');
+const positionOf8thSpaceInImageUrl = temporary8thImagesUrl.indexOf(' ');
+
+// This slices the exact starting from http until the first space ' '.
+const final8thImagesUrl = temporary8thImagesUrl.slice(
+  positionOf8thHttpInImageUrl,
+  positionOf8thSpaceInImageUrl,
+);
+// console.log('this should be it');
+console.log(final8thImagesUrl);
 
 // This looks for the 9th substring <img src
+
 const positionOf9thImagesUrl = htmlFromMemeMainpage.indexOf(
   '<img src',
   positionOf8thImagesUrl + 1,
 );
 console.log('9th URL');
-console.log(positionOf9thImagesUrl);
+// console.log(positionOf9thImagesUrl);
+
+// This finds the first substring containing the 9th URL
+const ninethImagesExtendedUrl = htmlFromMemeMainpage.slice(
+  positionOf9thImagesUrl,
+  positionOf9thImagesUrl + 80,
+);
+// console.log(ninethImagesExtendedUrl);
+
+// This removes the "<img src" and keeps the rest after the URL
+const temporary9thImagesUrl = ninethImagesExtendedUrl.slice(10, 72);
+// console.log(temporaryninethImagesUrl);
+
+// This findes the exact position of the http and the first space ' '.
+const positionOf9thHttpInImageUrl = temporary9thImagesUrl.indexOf('https');
+const positionOf9thSpaceInImageUrl = temporary9thImagesUrl.indexOf(' ');
+
+// This slices the exact starting from http until the first space ' '.
+const final9thImagesUrl = temporary9thImagesUrl.slice(
+  positionOf9thHttpInImageUrl,
+  positionOf9thSpaceInImageUrl,
+);
+// console.log('this should be it');
+console.log(final9thImagesUrl);
 
 // This looks for the 10th substring <img src
+
 const positionOf10thImagesUrl = htmlFromMemeMainpage.indexOf(
   '<img src',
   positionOf9thImagesUrl + 1,
 );
 console.log('10th URL');
-console.log(positionOf10thImagesUrl);
+// console.log(positionOf10thImagesUrl);
+
+// This finds the first substring containing the 9th URL
+const tenthImagesExtendedUrl = htmlFromMemeMainpage.slice(
+  positionOf10thImagesUrl,
+  positionOf10thImagesUrl + 80,
+);
+// console.log(tenthImagesExtendedUrl);
+
+// This removes the "<img src" and keeps the rest after the URL
+const temporary10thImagesUrl = ninethImagesExtendedUrl.slice(10, 72);
+// console.log(temporarytenthImagesUrl);
+
+// This findes the exact position of the http and the first space ' '.
+const positionOf10thHttpInImageUrl = temporary10thImagesUrl.indexOf('https');
+const positionOf10thSpaceInImageUrl = temporary10thImagesUrl.indexOf(' ');
+
+// This slices the exact starting from http until the first space ' '.
+const final10thImagesUrl = temporary10thImagesUrl.slice(
+  positionOf10thHttpInImageUrl,
+  positionOf10thSpaceInImageUrl,
+);
+// console.log('this should be it');
+console.log(final10thImagesUrl);
+
+//
+//
+//
+//
 
 /*
 const secondImagesUrl = htmlFromMemeMainpage.substring(7990, 8100);
