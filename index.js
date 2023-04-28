@@ -40,16 +40,13 @@ await fetch('https://memegen-link-examples-upleveled.netlify.app/')
 // console.log(testSubstringForIndexOf.indexOf('Script'));
 
 // This looks for the 1st substring "<img src" in the text
-const positionOf1stImagesection = htmlFromMemeMainpage.indexOf('<section');
+// const positionOf1stImagesection = htmlFromMemeMainpage.indexOf('<section');
 
-console.log(positionOf1stImagesection);
+// console.log(positionOf1stImagesection);
 
-const positionOf1stImageUrl = htmlFromMemeMainpage.indexOf(
-  '<img',
-  positionOf1stImagesection,
-);
+const positionOf1stImageUrl = htmlFromMemeMainpage.indexOf('<img src');
 
-console.log(typeof positionOf1stImageUrl);
+// console.log(typeof positionOf1stImageUrl);
 
 // This just prints the the number of the URL and the position of it in the big html file
 console.log('1st URL');
