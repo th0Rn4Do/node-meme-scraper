@@ -1,3 +1,4 @@
+// import fetch from 'node-fetch';
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 
 // import { http } from 'http';
@@ -15,69 +16,102 @@ try {
 // this creates an array for the 10 URLs. Later the array will be used to access all 10 images and copy them to to folder memes.
 const allTenUrlsArray = [];
 
+// This output just a test output to check wether the program is running at all.
+// console.log("What's up!!");
+
+// This const is a test string to test wether the substring can be found later in the program
+// const testSubstringForIndexOf = 'JavaScript';
+
+// This const is a test to know that stringForHtml was initialised with abc
+// const stringForHtml = 'abc';
+// console.log(stringForHtml);
+
 // This initialises the htmlFromMemeMainpage in order to assign the retured html-string later
-const htmlFromMemeMainpage = 'this is the string from the declaration';
+let htmlFromMemeMainpage = 'this is the string from the declaration';
+
+// This is a fetch-method wich is built in JavaScript and it fetches the https protocol from a website and converts them to a text and assigns it to htmlFromMemeMainpage
+// await fetch('https://memegen-link-examples-upleveled.netlify.app/')
+//  .then((response) => response.text())
+//  .then((data) => (htmlFromMemeMainpage = data) /* => console.log(data) */);
 
 const response = await fetch(
   'https://memegen-link-examples-upleveled.netlify.app/',
 );
 const data = await response.text();
 
-const positionOf1stImageUrl = data.indexOf('<img');
+const noLineBreaksData = data.replace();
 
-console.log('index of <img is: ' + positionOf1stImageUrl);
+const positionOne = noLineBreaksData.indexOf('<img src', 1);
+
+let firstUrlwithoutLineBreaksData = 'bla';
+
+firstUrlwithoutLineBreaksData = noLineBreaksData.substring(positionOne, 80);
+
+// console.log(firstUrlwithoutLineBreaksData);
+// console.log(firstNoLineBreaksData);
+
+// htmlFromMemeMainpage = data;
+
+//   .then((response) => response.text())
+//   .then((data) => (htmlFromMemeMainpage = data) /* => console.log(data) */);
+
+// await fetch('https://memegen-link-examples-upleveled.netlify.app/')
+//   .then((response) => response.text())
+//   .then((data) => fs.writeFileSync('imageshtml.html', data) => (htmlFromMemeMainpage = data)
+//
+
+// This is the initail note I made what the fetch-method looks like that I need for this project
+// fetch('').then((response) => then.)...
+// check recording time: 12:10
+
+// This looks for the substring 'Script' as a test
+// console.log(testSubstringForIndexOf.indexOf('Script'));
+
+// This looks for the 1st substring "<img src" in the text
+// const positionOf1stImagesection = htmlFromMemeMainpage.indexOf('<section');
+
+// console.log(positionOf1stImagesection);
+
+const positionOf1stImageUrl = firstUrlwithoutLineBreaksData.indexOf(
+  '<img src',
+  1,
+);
+// console.log(positionOf1stImageUrl);
+
+// console.log(typeof positionOf1stImageUrl);
+
 // This just prints the the number of the URL and the position of it in the big html file
 console.log('1st URL');
+// console.log(positionOf1stImageUrl);
 
 // This finds the first substring containing the 1st URL
-const firstImagesExtendedUrl = data.slice(
+const firstImagesExtendedUrl = firstUrlwithoutLineBreaksData.slice(
+  0,
   positionOf1stImageUrl,
-  positionOf1stImageUrl + 120,
 );
 
-console.log('the firstImagesExtendedUrl is: ' + firstImagesExtendedUrl);
+// console.log(firstImagesExtendedUrl);
 
 // This removes the "<img src" and keeps the rest after the URL
-const temporaryfirstImagesUrl = firstImagesExtendedUrl.slice(20, 120);
-
-console.log('the temporaryfirstImagesUrl is: ' + temporaryfirstImagesUrl);
-
+const temporaryfirstImagesUrl = firstImagesExtendedUrl.slice(10, 72);
 // console.log(temporaryfirstImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
 const positionOf1stHttpInImageUrl = temporaryfirstImagesUrl.indexOf('https');
-const positionOf1stSpaceInImageUrl = temporaryfirstImagesUrl.indexOf(
-  '"',
-  positionOf1stHttpInImageUrl,
-);
-
-console.log(
-  'the is positionOf1stHttpInImageUrl is: ' + positionOf1stHttpInImageUrl,
-);
-
-console.log(
-  'the is positionOf1stSpaceInImageUrl is: ' + positionOf1stSpaceInImageUrl,
-);
+const positionOf1stSpaceInImageUrl = temporaryfirstImagesUrl.indexOf('"');
 
 // This slices the exact starting from http until the first space ' '.
 
 const finalfirstImagesUrl = [];
 
-const positionOfLastsymbolInImageUrl = positionOf1stSpaceInImageUrl - 2;
-
-const thisIsIs = temporaryfirstImagesUrl.slice(
-  positionOf1stHttpInImageUrl,
-  positionOf1stSpaceInImageUrl,
+finalfirstImagesUrl.push(
+  temporaryfirstImagesUrl.slice(
+    positionOf1stHttpInImageUrl,
+    positionOf1stSpaceInImageUrl,
+  ),
 );
-
-console.log('This is it for real: ' + thisIsIs);
-
-finalfirstImagesUrl.push(thisIsIs);
-
 // console.log('this should be it');
-console.log(finalfirstImagesUrl[1]);
-console.log(finalfirstImagesUrl[0]);
-console.log(finalfirstImagesUrl[1]);
+// console.log(finalfirstImagesUrl[0]);
 
 // This adds the first URL to the array
 /* async function addImageToArray() {
