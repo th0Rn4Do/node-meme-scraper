@@ -25,12 +25,12 @@ const allTenUrlsArray = [];
 // console.log(stringForHtml);
 
 // This initialises the htmlFromMemeMainpage in order to assign the retured html-string later
-let htmlFromMemeMainpage = 'no return html';
+let htmlFromMemeMainpage;
 
 // This is a fetch-method wich is built in JavaScript and it fetches the https protocol from a website and converts them to a text and assigns it to htmlFromMemeMainpage
 await fetch('https://memegen-link-examples-upleveled.netlify.app/')
   .then((response) => response.text())
-  .then((data) => (htmlFromMemeMainpage = data));
+  .then((data) => (htmlFromMemeMainpage = data) /* => console.log(data) */);
 
 // This is the initail note I made what the fetch-method looks like that I need for this project
 // fetch('').then((response) => then.)...
@@ -40,7 +40,16 @@ await fetch('https://memegen-link-examples-upleveled.netlify.app/')
 // console.log(testSubstringForIndexOf.indexOf('Script'));
 
 // This looks for the 1st substring "<img src" in the text
-const positionOf1stImageUrl = htmlFromMemeMainpage.indexOf('<img src');
+const positionOf1stImagesection = htmlFromMemeMainpage.indexOf('<section');
+
+console.log(positionOf1stImagesection);
+
+const positionOf1stImageUrl = htmlFromMemeMainpage.indexOf(
+  '<img',
+  positionOf1stImagesection,
+);
+
+console.log(typeof positionOf1stImageUrl);
 
 // This just prints the the number of the URL and the position of it in the big html file
 console.log('1st URL');
@@ -62,12 +71,17 @@ const positionOf1stHttpInImageUrl = temporaryfirstImagesUrl.indexOf('https');
 const positionOf1stSpaceInImageUrl = temporaryfirstImagesUrl.indexOf(' ');
 
 // This slices the exact starting from http until the first space ' '.
-const finalfirstImagesUrl = temporaryfirstImagesUrl.slice(
-  positionOf1stHttpInImageUrl,
-  positionOf1stSpaceInImageUrl,
+
+const finalfirstImagesUrl = [];
+
+finalfirstImagesUrl.push(
+  temporaryfirstImagesUrl.slice(
+    positionOf1stHttpInImageUrl,
+    positionOf1stSpaceInImageUrl,
+  ),
 );
 // console.log('this should be it');
-console.log(finalfirstImagesUrl);
+console.log(finalfirstImagesUrl[0]);
 
 // This adds the first URL to the array
 /* async function addImageToArray() {
@@ -89,7 +103,7 @@ allTenUrlsArray.push(finalfirstImagesUrl);
 // This looks for the 2st substring <img src
 const positionOf2ndImageUrl = htmlFromMemeMainpage.indexOf(
   '<img src',
-  positionOf1stImageUrl + 1,
+  positionOf1stImageUrl + 5,
 );
 console.log('2nd URL');
 // console.log(positionOf2ndImageUrl);
@@ -106,8 +120,8 @@ const temporary2ndImagesUrl = secondImagesExtendedUrl.slice(10, 72);
 // console.log(temporary2ndImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
-const positionOf2ndHttpInImageUrl = temporaryfirstImagesUrl.indexOf('https');
-const positionOf2ndSpaceInImageUrl = temporaryfirstImagesUrl.indexOf(' ');
+const positionOf2ndHttpInImageUrl = temporary2ndImagesUrl.indexOf('http');
+const positionOf2ndSpaceInImageUrl = temporary2ndImagesUrl.indexOf('"');
 
 // This slices the exact starting from http until the first space ' '.
 const final2ndImagesUrl = temporary2ndImagesUrl.slice(
@@ -140,8 +154,8 @@ const temporary3rdImagesUrl = thirdImagesExtendedUrl.slice(10, 72);
 // console.log(temporaryfirstImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
-const positionOf3rdHttpInImageUrl = temporary3rdImagesUrl.indexOf('https');
-const positionOf3rdSpaceInImageUrl = temporary3rdImagesUrl.indexOf(' ');
+const positionOf3rdHttpInImageUrl = temporary3rdImagesUrl.indexOf('http');
+const positionOf3rdSpaceInImageUrl = temporary3rdImagesUrl.indexOf('"');
 
 // This slices the exact starting from http until the first space ' '.
 const final3rdImagesUrl = temporary3rdImagesUrl.slice(
@@ -176,8 +190,8 @@ const temporary4thImagesUrl = fourthImagesExtendedUrl.slice(10, 72);
 // console.log(temporaryfirstImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
-const positionOf4thHttpInImageUrl = temporary4thImagesUrl.indexOf('https');
-const positionOf4thSpaceInImageUrl = temporary4thImagesUrl.indexOf(' ');
+const positionOf4thHttpInImageUrl = temporary4thImagesUrl.indexOf('http');
+const positionOf4thSpaceInImageUrl = temporary4thImagesUrl.indexOf('"');
 
 // This slices the exact starting from http until the first space ' '.
 const final4thImagesUrl = temporary4thImagesUrl.slice(
@@ -210,8 +224,8 @@ const temporary5thImagesUrl = fifthImagesExtendedUrl.slice(10, 72);
 // console.log(temporaryfifthImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
-const positionOf5thHttpInImageUrl = temporary5thImagesUrl.indexOf('https');
-const positionOf5thSpaceInImageUrl = temporary5thImagesUrl.indexOf(' ');
+const positionOf5thHttpInImageUrl = temporary5thImagesUrl.indexOf('http');
+const positionOf5thSpaceInImageUrl = temporary5thImagesUrl.indexOf('"');
 
 // This slices the exact starting from http until the first space ' '.
 const final5thImagesUrl = temporary5thImagesUrl.slice(
@@ -244,8 +258,8 @@ const temporary6thImagesUrl = sixthImagesExtendedUrl.slice(10, 72);
 // console.log(temporaryfifthImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
-const positionOf6thHttpInImageUrl = temporary6thImagesUrl.indexOf('https');
-const positionOf6thSpaceInImageUrl = temporary6thImagesUrl.indexOf(' ');
+const positionOf6thHttpInImageUrl = temporary6thImagesUrl.indexOf('http');
+const positionOf6thSpaceInImageUrl = temporary6thImagesUrl.indexOf('"');
 
 // This slices the exact starting from http until the first space ' '.
 const final6thImagesUrl = temporary6thImagesUrl.slice(
@@ -278,8 +292,8 @@ const temporary7thImagesUrl = seventhImagesExtendedUrl.slice(10, 72);
 // console.log(temporaryseventhImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
-const positionOf7thHttpInImageUrl = temporary7thImagesUrl.indexOf('https');
-const positionOf7thSpaceInImageUrl = temporary7thImagesUrl.indexOf(' ');
+const positionOf7thHttpInImageUrl = temporary7thImagesUrl.indexOf('http');
+const positionOf7thSpaceInImageUrl = temporary7thImagesUrl.indexOf('"');
 
 // This slices the exact starting from http until the first space ' '.
 const final7thImagesUrl = temporary7thImagesUrl.slice(
@@ -312,8 +326,8 @@ const temporary8thImagesUrl = eighthImagesExtendedUrl.slice(10, 72);
 // console.log(temporaryeighthImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
-const positionOf8thHttpInImageUrl = temporary8thImagesUrl.indexOf('https');
-const positionOf8thSpaceInImageUrl = temporary8thImagesUrl.indexOf(' ');
+const positionOf8thHttpInImageUrl = temporary8thImagesUrl.indexOf('http');
+const positionOf8thSpaceInImageUrl = temporary8thImagesUrl.indexOf('"');
 
 // This slices the exact starting from http until the first space ' '.
 const final8thImagesUrl = temporary8thImagesUrl.slice(
@@ -346,8 +360,8 @@ const temporary9thImagesUrl = ninethImagesExtendedUrl.slice(10, 72);
 // console.log(temporaryninethImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
-const positionOf9thHttpInImageUrl = temporary9thImagesUrl.indexOf('https');
-const positionOf9thSpaceInImageUrl = temporary9thImagesUrl.indexOf(' ');
+const positionOf9thHttpInImageUrl = temporary9thImagesUrl.indexOf('http');
+const positionOf9thSpaceInImageUrl = temporary9thImagesUrl.indexOf('"');
 
 // This slices the exact starting from http until the first space ' '.
 const final9thImagesUrl = temporary9thImagesUrl.slice(
@@ -380,8 +394,8 @@ const temporary10thImagesUrl = tenthImagesExtendedUrl.slice(10, 72);
 // console.log(temporarytenthImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
-const positionOf10thHttpInImageUrl = temporary10thImagesUrl.indexOf('https');
-const positionOf10thSpaceInImageUrl = temporary10thImagesUrl.indexOf(' ');
+const positionOf10thHttpInImageUrl = temporary10thImagesUrl.indexOf('http');
+const positionOf10thSpaceInImageUrl = temporary10thImagesUrl.indexOf('"');
 
 // This slices the exact starting from http until the first space ' '.
 const final10thImagesUrl = temporary10thImagesUrl.slice(
