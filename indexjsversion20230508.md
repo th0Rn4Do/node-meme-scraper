@@ -1,5 +1,7 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
 
+// import { http } from 'http';
+
 // This creates a new folder named memes and in case it already exists it gives an error message
 try {
   if (existsSync('memes')) {
@@ -31,20 +33,20 @@ console.log('1st URL');
 // This finds the first substring containing the 1st URL
 const firstImagesExtendedUrl = data.slice(
   positionOf1stImageUrl,
-  positionOf1stImageUrl + 200,
+  positionOf1stImageUrl + 120,
 );
 
 console.log('the firstImagesExtendedUrl is: ' + firstImagesExtendedUrl);
 
 // This removes the "<img src" and keeps the rest after the URL
-const temporaryfirstImagesUrl = firstImagesExtendedUrl.slice(22, 200);
+const temporaryfirstImagesUrl = firstImagesExtendedUrl.slice(20, 120);
 
 console.log('the temporaryfirstImagesUrl is: ' + temporaryfirstImagesUrl);
 
 // console.log(temporaryfirstImagesUrl);
 
 // This findes the exact position of the http and the first space ' '.
-const positionOf1stHttpInImageUrl = temporaryfirstImagesUrl.indexOf('http');
+const positionOf1stHttpInImageUrl = temporaryfirstImagesUrl.indexOf('https');
 const positionOf1stSpaceInImageUrl = temporaryfirstImagesUrl.indexOf(
   '"',
   positionOf1stHttpInImageUrl,
@@ -96,24 +98,24 @@ console.log(finalfirstImagesUrl[1]);
 allTenUrlsArray.push(finalfirstImagesUrl);
 
 // This looks for the 2st substring <img src
-const positionOf2ndImageUrl = data.indexOf('<img', positionOf1stImageUrl + 1);
-console.log('index of <img is: ' + positionOf2ndImageUrl);
-
+const positionOf2ndImageUrl = data.indexOf(
+  '<img src',
+  positionOf1stImageUrl + 50,
+);
 console.log('2nd URL');
 // console.log(positionOf2ndImageUrl);
 
 // This finds the first substring containing the 2nd URL
 const secondImagesExtendedUrl = data.slice(
   positionOf2ndImageUrl,
-  positionOf2ndImageUrl + 200,
+  positionOf2ndImageUrl + 120,
 );
 // console.log(secondImagesExtendedUrl);
-console.log('the secondImagesExtendedUrl is: ' + secondImagesExtendedUrl);
 
 // This removes the "<img src" and keeps the rest after the URL
-const temporary2ndImagesUrl = secondImagesExtendedUrl.slice(22, 200);
+const temporary2ndImagesUrl = secondImagesExtendedUrl.slice(10, 72);
 // console.log(temporary2ndImagesUrl);
-console.log('the temporary2ndImagesUrl is: ' + temporary2ndImagesUrl);
+
 // This findes the exact position of the http and the first space ' '.
 const positionOf2ndHttpInImageUrl = temporary2ndImagesUrl.indexOf('http');
 const positionOf2ndSpaceInImageUrl = temporary2ndImagesUrl.indexOf('"');
@@ -130,7 +132,10 @@ allTenUrlsArray.push(final2ndImagesUrl);
 
 // This looks for the 3rd substring <img src
 
-const positionOf3rdImagesUrl = data.indexOf('<img', positionOf2ndImageUrl + 1);
+const positionOf3rdImagesUrl = data.indexOf(
+  '<img src',
+  positionOf2ndImageUrl + 1,
+);
 console.log('3rd URL');
 // console.log(positionOf3rdImagesUrl);
 
