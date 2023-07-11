@@ -21,7 +21,7 @@ const response = await fetch(
 );
 const data = await response.text();
 
-const positionOf1stImageUrl = data.indexOf('<img');
+const positionOf1stImageUrl = data.indexOf('<img src');
 
 // console.log('index of <img is: ' + positionOf1stImageUrl);
 
